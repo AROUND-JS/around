@@ -385,7 +385,7 @@ c-11 -29 -47 -138 -82 -243 -76 -232 -86 -250 -150 -309 -77 -68 -172 -92
                 </div>
             </div>
 
-            <form action="" method="get" id="search_form" style="max-width: 80rem; margin: 0 auto; text-align:center;">
+            <form action="/board/search/chungcheong" method="get" id="search_form" style="max-width: 80rem; margin: 0 auto; text-align:center;">
                 <div class="articles_search" style="padding:15px 30px; background-color:#fff; margin-top: 50px; margin-bottom: 15px; overflow: hidden;">
                     <div id="basic_searchForm" class="basic_searchForm" style="padding-top: 1px;">
                         <input type="hidden" name="categoryCodeData1" id="categoryCodeData1" value="" title="카테고리1"/>
@@ -395,8 +395,13 @@ c-11 -29 -47 -138 -82 -243 -76 -232 -86 -250 -150 -309 -77 -68 -172 -92
                             <option value="DATA_CONTENT">내용</option>
                             <option value="USER_NICK">작성자</option>
                         </select>
-                        <input type="text" name="keyword" id="keyword" value="" title="검색어입력" />
+                        <% if(currentSearchWord != null) { %>
+                        <input type="text" name="keyword" id="keyword" value="" placeholder="<%= currentSearchWord %>" />
                         <!-- <label for="searchSubmit" class="blind">검색 버튼</label> -->
+                        <% } else { %>
+                        <input type="text" name="keyword" id="keyword" value="" title="검색어 입력" />
+                        <!-- <label for="searchSubmit" class="blind">검색 버튼</label> -->
+                        <% } %>
                         <input type="submit" class="input_smallBlack" id="searchSubmit" value="검색">
                     </div>
                 </div>

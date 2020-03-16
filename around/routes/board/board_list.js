@@ -37,7 +37,8 @@ router.get('/companion_board', function(req,res) {
             limit: limit,
             length: result.rows.length-1,
             page_num: 10,
-            islogin: login
+            islogin: login,
+            currentSearchWord: null
         })
     })
 });
@@ -97,7 +98,8 @@ router.get('/schedule_share', function(req,res) {
             limit: limit,
             length: result.rows.length-1,
             page_num: 10,
-            islogin: login
+            islogin: login,
+            currentSearchWord: null
         })
     })
 });
@@ -155,7 +157,8 @@ router.get('/sgi', function(req,res) {
             limit: limit,
             length: result.rows.length-1,
             page_num: 10,
-            islogin: login
+            islogin: login,
+            currentSearchWord: null
         })
     })
 });
@@ -209,7 +212,8 @@ router.get('/jeonla', function(req,res) {
             limit: limit,
             length: result.rows.length-1,
             page_num: 10,
-            islogin: login
+            islogin: login,
+            currentSearchWord: null
         })
     })
 });
@@ -263,7 +267,8 @@ router.get('/jeju', function(req,res) {
             limit: limit,
             length: result.rows.length-1,
             page_num: 10,
-            islogin: login
+            islogin: login,
+            currentSearchWord: null
         })
     })
 });
@@ -316,7 +321,8 @@ router.get('/gangwon', function(req,res) {
             limit: limit,
             length: result.rows.length-1,
             page_num: 10,
-            islogin: login
+            islogin: login,
+            currentSearchWord: null
         })
     })
 });
@@ -369,7 +375,8 @@ router.get('/gyeongsang', function(req,res) {
             limit: limit,
             length: result.rows.length-1,
             page_num: 10,
-            islogin: login
+            islogin: login,
+            currentSearchWord: null
         })
     })
 });
@@ -421,7 +428,8 @@ router.get('/chungcheong', function(req,res) {
             limit: limit,
             length: result.rows.length-1,
             page_num: 10,
-            islogin: login
+            islogin: login,
+            currentSearchWord: null
         })
     })
 });
