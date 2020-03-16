@@ -1,0 +1,16 @@
+{
+  "around": {
+    "username": "root",
+    "password": "root",
+    "database": "around",
+    "host": "220.67.128.82",
+    "port": "1004",
+    "dialect": "mysql",
+    "pool": {
+      "max" : 20,
+      "min" : 0,
+      "idle" : 10000
+    },
+    "operatorsAliases": false
+  }
+}

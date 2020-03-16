@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Around</title>
+
+    <link rel="stylesheet" type="text/css" href="/stylesheets/reset.css">
+    <!-- <link rel="stylesheet" type="text/css" href="/stylesheets/normalize.css"> -->
+    <!-- <link rel="stylesheet" type="text/css" href="/stylesheets/master.css">  -->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+    <style>
+
+        #banner {
+            padding: 13em 0 8em 0;
+            background-color: #0c0c0c;
+            background-image: url(/images/trip.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: 15% left;
+            text-align: left;
+            z-index: 9999;
+            opacity: 0.9;
+        }
+
+        #banner .inner {
+            padding-top: 5rem;
+            max-width: 65em;
+            width: calc(100% - 6em);
+            margin: 0 auto;
+            position: relative;
+            z-index: 10000;
+            line-height: 1.5;
+            text-align: center;
+        }
+
+        #banner h1 {
+            font-size: 2em;
+            margin: 0 0 1em 0;
+            padding: 0;
+            letter-spacing: 3px;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        @media (max-width: 1500px) {
+            .content-wrap {
+            width: 100%;
+            padding: 20px;
+            }
+        }
+
+        nav ul li a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .paging ul li a {
+            width: 34px;
+            height: 34px;
+            border-radius: 34px;
+            color: #333;
+            line-height: 32px;
+            display: inline-block;
+            box-sizing: border-box;
+        }
+
+        a:link, a:visited, a:hover, a, .active, a:focus {
+            text-decoration: none;
+            cursor: pointer;
+            color: inherit;
+            word-break: break-word;
+        }
+
+        ol:after, ul:after, dl:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        .input_smallBlack {
+            padding: 5px 27px;
+            background-color: #343434;
+            border: none;
+            border-radius: 0;
+            color: #fff;
+            text-align: center;
+            letter-spacing: -0.1em;
+        }
+
+        #menubar li:hover ul {
+            display:block;   /* 마우스 커서 올리면 서브메뉴 보이게 하기 */
+        }
+
+        input[type="date"]::-webkit-calendar-picker-indicator,
+        input[type="date"]::-webkit-inner-spin-button {
+            display: none;
+            appearance: none;
+        }
+        
+    </style>
+
+    <script src="//code.jquery.com/jquery.min.js"></script>
+    <script>
+    $(function(){
+    $("#menubar li").hover(function(){
+        $('ul:first',this).show();
+    }, function(){
+        $('ul:first',this).hide();
+    });
+    $("#menubar>li:has(ul)>a").each( function() {
+        $(this).html( $(this).html()+' &or;' );
+    });
+    $("#menubar ul li:has(ul)")
+        .find("a:first")
+        .append("<p style='float:right;margin:-3px'>&#9656;</p>");
+    });
+    </script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm fixed-top" style="padding-top: 0; padding-bottom: 0; border-bottom: 1px solid rgba(255,255,255,0.6);">
+        <a class="navbar-brand py-0" href="/">
+            <svg width="121px" height="55px" viewBox="0 0 672 305" preserveAspectRatio="xMidYMid meet">
+
+                <g transform="translate(0.000000,305.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
+                    <path d="M5955 2308 c-3 -7 -28 -80 -56 -163 -28 -82 -55 -161 -60 -173 l-9
+-24 -29 31 c-39 41 -69 51 -157 51 -174 0 -314 -94 -400 -269 -59 -122 -98
+-257 -98 -348 -1 -67 3 -86 20 -109 33 -45 65 -64 132 -76 105 -19 235 15 305
+80 l28 26 -16 -43 c-8 -24 -15 -47 -15 -52 0 -5 29 -9 64 -9 60 0 64 2 75 28
+6 15 87 252 180 527 93 275 172 508 176 518 6 15 0 17 -64 17 -48 0 -73 -4
+-76 -12z m-262 -412 c89 -37 95 -89 31 -271 -56 -158 -92 -208 -177 -248 -100
+-47 -178 -44 -228 9 -33 36 -32 113 5 224 55 164 105 237 191 276 57 27 129
+31 178 10z" />
+                    <path d="M1265 1763 c-198 -278 -361 -511 -363 -519 -3 -11 12 -14 65 -14 l68
+1 106 152 106 152 199 0 199 0 3 -152 3 -153 74 0 75 0 0 58 c0 31 -7 237 -15
+457 -8 220 -15 428 -15 463 l0 62 -72 -1 -73 0 -360 -506z m375 107 l0 -210
+-145 0 c-95 0 -145 4 -145 11 0 5 49 81 108 167 60 86 121 176 136 200 14 23
+31 42 36 42 6 0 10 -78 10 -210z" />
+                    <path d="M2467 2015 c-44 -16 -89 -46 -133 -88 l-32 -29 19 58 c10 31 19 59
+19 61 0 2 -30 3 -67 1 l-68 -3 -127 -375 c-71 -206 -130 -383 -134 -392 -5
+-16 2 -18 65 -18 39 0 71 1 71 3 0 4 157 459 169 490 19 48 108 133 164 157
+42 19 63 22 117 17 l66 -5 38 60 c32 48 37 61 25 69 -21 13 -149 9 -192 -6z" />
+                    <path d="M2960 2007 c-82 -29 -112 -48 -178 -111 -67 -64 -111 -142 -156 -277
+-41 -120 -48 -219 -21 -283 33 -78 151 -125 282 -112 180 19 324 125 402 297
+74 164 100 315 67 393 -17 41 -75 90 -125 105 -66 19 -198 14 -271 -12z m226
+-140 c30 -33 34 -43 34 -93 0 -37 -11 -88 -31 -147 -33 -95 -44 -117 -92 -180
+-82 -106 -264 -136 -332 -55 -34 41 -34 121 1 225 45 133 81 188 166 252 36
+27 94 41 157 38 59 -3 66 -6 97 -40z" />
+                    <path d="M4746 2011 c-53 -22 -116 -62 -116 -74 0 -5 -4 -6 -10 -2 -6 4 -6 15
+0 31 19 50 15 54 -55 54 -36 0 -65 -1 -65 -3 0 -1 -58 -175 -130 -385 -71
+-211 -130 -388 -130 -393 0 -5 30 -9 68 -9 l67 0 89 265 c81 243 92 269 131
+313 50 56 115 91 183 99 90 10 152 -27 152 -91 0 -16 -40 -151 -90 -300 -49
+-150 -90 -275 -90 -279 0 -11 128 -8 135 3 4 6 49 137 101 292 118 352 120
+394 28 465 -33 24 -46 27 -128 30 -72 3 -101 -1 -140 -16z" />
+                    <path d="M3536 1725 c-89 -265 -98 -300 -94 -350 6 -68 28 -102 89 -133 38
+-20 55 -23 129 -19 91 4 153 27 219 82 36 31 36 30 16 -18 -23 -56 -22 -58 52
+-55 l67 3 128 375 c70 206 127 383 127 393 1 14 -9 17 -63 17 l-65 0 -19 -52
+c-11 -29 -47 -138 -82 -243 -76 -232 -86 -250 -150 -309 -77 -68 -172 -92
+-245 -62 -38 16 -55 42 -55 85 0 16 41 150 90 297 50 147 90 271 90 276 0 4
+-30 8 -67 8 l-68 0 -99 -295z" />
+                    <path d="M4759 950 l-23 -70 -38 0 c-36 0 -37 1 -32 30 10 45 -17 80 -62 80
+-69 0 -114 -40 -147 -130 -33 -89 -14 -130 61 -130 48 0 97 36 118 87 12 28
+19 33 49 33 19 0 35 -3 35 -7 0 -5 -16 -53 -35 -107 -19 -55 -35 -101 -35
+-103 0 -3 10 -3 22 -1 18 3 30 28 80 178 32 96 61 183 64 193 4 12 0 17 -15
+17 -16 0 -24 -14 -42 -70z m-141 -29 c10 -69 -52 -166 -102 -159 -40 6 -31
+104 15 162 28 36 82 34 87 -3z" />
+                    <path d="M5119 953 c-12 -38 -42 -124 -66 -193 -23 -69 -43 -126 -43 -127 0
+-2 8 -3 18 -3 21 0 37 32 72 142 20 63 23 67 53 70 41 4 52 38 13 38 -31 0
+-31 -1 -6 74 24 72 24 66 1 66 -15 0 -24 -15 -42 -67z" />
+                    <path d="M5343 991 c-45 -21 -63 -45 -63 -85 0 -35 26 -46 105 -46 87 0 140
+25 149 72 6 28 3 37 -19 56 -33 28 -112 30 -172 3z m121 -21 c32 -12 34 -43 4
+-64 -29 -21 -121 -21 -138 -1 -18 21 -5 44 32 60 39 17 68 18 102 5z" />
+                    <path d="M4887 983 c-4 -3 -7 -12 -7 -20 0 -9 17 -13 60 -13 63 0 66 -3 54
+-47 -6 -21 -12 -23 -73 -23 l-67 0 -22 -62 c-12 -35 -22 -69 -22 -76 0 -10 24
+-12 102 -10 84 2 103 6 106 19 2 14 -8 15 -78 11 -85 -5 -87 -4 -69 46 10 30
+13 31 76 34 l66 3 23 60 c13 33 23 66 23 73 1 9 -22 12 -82 12 -46 0 -87 -3
+-90 -7z" />
+                    <path d="M5675 978 c-18 -49 -55 -163 -55 -170 0 -4 59 -8 131 -8 119 0 130 2
+127 18 -3 15 -17 17 -107 20 -82 2 -102 6 -98 16 3 8 11 32 18 55 l12 40 111
+3 c96 3 111 5 114 21 3 15 -8 17 -123 17 -91 0 -127 -3 -130 -12z" />
+                    <path d="M3285 950 c-3 -5 -15 -10 -26 -10 -24 0 -24 6 8 -100 14 -50 24 -92
+21 -96 -3 -3 -26 -11 -51 -19 -41 -12 -47 -12 -66 6 -24 22 -31 23 -66 7 -30
+-14 -31 -22 -5 -55 24 -31 25 -51 5 -89 -23 -44 -20 -55 13 -48 31 8 72 41 72
+60 0 12 57 34 87 34 20 0 21 -13 8 -90 -20 -108 -20 -110 13 -110 40 0 48 9
+76 85 15 39 30 79 35 90 5 11 13 32 19 46 8 21 22 29 71 42 34 8 70 13 79 10
+10 -2 123 10 252 26 129 17 239 31 245 31 5 0 -7 -11 -28 -25 -37 -26 -48 -45
+-25 -45 16 0 138 80 138 91 0 8 -71 49 -85 49 -3 0 -5 -9 -5 -20 0 -11 -1 -20
+-3 -20 -1 0 -106 -14 -232 -30 -126 -16 -233 -30 -238 -30 -5 0 -5 9 -2 20 3
+11 3 29 0 40 -8 25 -41 26 -115 4 -51 -15 -55 -15 -65 1 -83 140 -113 173
+-130 145z m74 -105 c29 -47 57 -85 61 -85 5 0 37 9 71 20 66 20 85 16 75 -16
+-4 -13 -28 -25 -77 -39 l-71 -20 -29 -75 c-16 -41 -34 -92 -40 -113 -9 -35
+-32 -57 -45 -44 -5 5 6 94 22 180 5 26 4 27 -23 22 -85 -20 -124 -38 -138 -66
+-26 -49 -45 -36 -25 16 7 19 6 34 -5 55 -19 36 -2 51 27 23 20 -20 20 -20 91
+2 82 25 79 16 41 135 -18 56 -20 76 -11 82 7 4 14 8 17 8 3 0 29 -38 59 -85z" />
+                    <path d="M1680 847 c0 -31 296 -141 488 -181 186 -39 331 -50 547 -41 231 9
+297 16 303 33 3 10 -19 11 -115 5 -204 -14 -496 -9 -614 10 -186 31 -405 98
+-601 185 -5 2 -8 -3 -8 -11z" />
+                    <path d="M5190 805 c0 -12 15 -15 76 -15 66 0 75 -2 70 -16 -17 -44 -18 -64
+-3 -64 19 0 34 18 42 53 7 27 8 27 86 27 64 0 79 3 79 15 0 13 -26 15 -175 15
+-149 0 -175 -2 -175 -15z" />
+                    <path d="M5209 723 c-6 -16 -13 -41 -16 -56 l-6 -28 128 3 c92 2 130 7 133 16
+3 9 -22 12 -103 12 -106 0 -107 0 -102 23 2 12 8 30 12 40 5 13 2 17 -14 17
+-14 0 -25 -9 -32 -27z" />
+                    <path d="M5537 713 c-4 -3 -7 -12 -7 -20 0 -11 33 -13 177 -11 160 3 178 5
+181 21 3 16 -10 17 -171 17 -95 0 -177 -3 -180 -7z" />
+                </g>
+            </svg>
+        </a>
+        <ul id="menubar" class="navbar-nav" style="position: absolute; right: 0;">
+            <li class="nav-item" style="margin-right: 1.5rem;">
+                <a class="nav-link" href="#" style="color: #fff;">지역별 게시판</a>
+                <ul style="background-color: #fff; display:none; height:auto; border:1px solid #555; position:absolute; width:150px; z-index:200;">
+                    <li><a href="/board/list/sgi">서울·경기·인천</a></li>
+                    <li><a href="/board/list/gangwon">강 원</a></li>
+                    <li><a href="/board/list/chungcheong">충 청</a></li>
+                    <li><a href="/board/list/jeonla">전 라</a></li>
+                    <li><a href="/board/list/gyeongsang">경 상</a></li>
+                    <li><a href="/board/list/jeju">제 주</a></li>
+                </ul>
+            </li>
+            <li class="nav-item" style="margin-right: 1.5rem;">
+                <a class="nav-link" href="/board/list/companion_board" style="color: #fff;">동행 게시판</a>
+            </li>
+            <li class="nav-item" style="margin-right: 1.5rem;">
+                <a class="nav-link" href="/board/list/schedule_share" style="color: #fff;">일정 게시판</a>
+            </li>
+            <li class="nav-item" style="margin-right: 1.5rem;">
+                <% if (islogin) { %>
+                    <div><a href="/members/signout" class="nav-link" style="color: #fff;">로그아웃</a></div>
+                  <% } %>
+                  <% if(!islogin) { %>
+                    <div><a href="/members/signin" class="nav-link" style="color: #fff;">로그인</a></div>
+                  <% } %>
+            </li>
+        </ul>
+
+      </nav>
+
+    <div id="container" style="width: 100%; position: relative;">
+        <section id="banner">
+            <div class="inner">
+                <h1>동행 게시판</h1>
+            </div>
+        </section>
+
+        <div id="content" class="content-wrap" style="padding-top:3rem;">
+            <div class="row">
+                <div class="col-1"></div>
+                <div class="col-10">
+                    <div class="card">
+                        <div class="card-header" style=" padding-right:5px">
+                            <div style="word-spacing: 3px; color: #aaa; font-style: bold;">
+                                <span id="region" style="padding: 1px;"><%= cb.c_region %></span>
+                                <span>|</span>
+                                <span id="dept_date" style="padding: 1px;"><%= cb.c_dept_date.getFullYear() + "/" + (cb.c_dept_date.getMonth() + 1) + "/" + cb.c_dept_date.getDate() %></span>
+                                
+                            </div>
+                            <div style="margin-bottom: 5px; font-style: bold; margin-top:5px; letter-spacing: 1px;">
+                                <span id="content_title" style="font-size: 25px;"><%= cb.c_post_title %></span>
+                            </div>
+                            <div class="row">
+                                <div class="col-11" style="font-size:14px;color:#bbb;margin-left:15px; word-spacing: 3px;">
+                                    <span>By. <%= cb.c_writer %></span>
+                                    <span>|</span>
+                                    <span><%= cb.c_write_date.getFullYear() + "/" + cb.c_write_date.getMonth() + "/" + cb.c_write_date.getDate() %></span>
+                                    <span>|</span>
+                                    <span>조회수 : <%= cb.c_hit %></span>
+                                </div>
+                                <% if(nickname == cb.c_writer) { %>
+                                <div class="float-right" style="font-size:14px;bottom:0;">
+                                    <a href="/board/modify/companion_board/<%= cb.c_post_no %>">수정</a>
+                                    <form action="/board/delete/companion_board/<%= cb.c_post_no %>?_method=PATCH" method="POST" enctype="multipart/form-data">
+                                        <input type="submit" value="삭제">
+                                    </form>     
+                                </div>
+                                <% } %>
+                            </div>
+    
+                        </div>
+                        <div class="card-body">
+                            <div style="margin-top: 10px;margin-bottom: 15px">
+                                <%= cb.c_post_text %>
+                            </div>
+                            <!-- {% if data_dic.content_file != None %} -->
+                            <div style="margin-top: 10px;margin-bottom: 15px">
+                                <%= cb.c_post_file %><!-- <img src="/static/upload/{{data_dic.content_file}}" style="max-width:80%;max-height: 80%"/> -->
+                            </div>
+                            <!-- {% endif %} -->
+                            
+                        </div> 
+                        <div class="card-footer justify-content-center">
+                            <div class="button-group justify-content-center">
+                                <!-- onclick="read_likes()" -->
+                                <button type="button" class="btn btn-primary" >추천</button>
+                                <!-- {{data_dic.content_likes}} -->
+                                <button type="button" class="btn btn-outline-primary" disabled>좋아요</button>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                    
+                    <div class="comments" style="margin-top:1rem;">
+                        <h4>Comments (<%= cb.c_comments ? cb.c_comments.length : 0 %>)</h4>
+                        <% if (cb.c_comments) { %>
+                        <hr/>
+                        <% for(let comment of cb.c_comments) { %>
+                            <div class="comment">
+                              <div class="top">
+                                <b><%= comment.dataValues.c_comment_writer %></b>
+                                <%= comment.dataValues.c_comment_write_date.getFullYear() + "/" + (comment.dataValues.c_comment_write_date.getMonth() + 1) + "/" + comment.dataValues.c_comment_write_date.getDate() %>
+                                <form action="/board/comment/companion_board/<%= comment.dataValues.c_comment_no %>?_method=PATCH" method="post">
+                                    <input type="submit" value="x">
+                                </form>
+                                  </form>
+                              </div>
+
+                              <div class="body"><%= comment.dataValues.c_comment_text %></div>
+                            </div>
+                       <% } %>
+                       <% } %>
+                            <form style="display: inline-block; position: relative; width: 100%; max-width: 1580px; " action="/board/comment/companion_board/<%= cb.c_post_no %>" method="post">
+                                <textarea style="width: 92%; padding-left: 3px; resize: vertical;"  placeholder="Add comment here" name="newComment"></textarea>
+                                <button type="submit" style="margin-left: 5px; float: right;">Comment</button>
+                            </form>
+                      </div>
+    
+                    <div class="clearfix" style="margin-top:30px">
+                        <div class="float-right">
+                            <a href="/board/list/companion_board" class="btn btn-primary" style="color: white;">
+                                목록 보기
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-2"></div>
+            <div style="margin-top:100px"></div>
+        </div>
+
+    </div>
+
+    <div id="footer" style="height:15rem; background: black; color: white; text-align: center; padding-top: 7rem;">
+        <h1>Footer</h1>
+    </div>
+
+    <!-- <script>
+        document.getElementById('currentdate').value = new Date().toISOString().substring(0,10);
+    </script> -->
+</body>
+</html>
