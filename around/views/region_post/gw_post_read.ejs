@@ -134,14 +134,12 @@
                                     <span>|</span>
                                     <span>조회수 : <%= gw.gw_hit %></span>
                                 </div>
-                                <!-- {% if session['login'] and session['user_idx'] == data_dic.user_idx  %} -->
-                                <div class="float-right" style="font-size:14px;bottom:0;">
-                                    <a href="/board/modify/gangwon/<%= gw.gw_post_no %>">수정</a>
-                                    <form action="/board/delete/gangwon/<%= gw.gw_post_no %>?_method=PATCH" method="POST" enctype="multipart/form-data">
-                                        <input type="submit" value="삭제">
-                                    </form>
-                                </div>
-                                <!-- {% endif %} -->
+                                <% if(nickname == gw.gw_writer) { %>
+                                <a href="/board/modify/gangwon<%= gw.gw_post_no %>"><span style="font-size: 14px;">수정</span></a>
+                                <form action="/board/delete/gangwon<%= gw.gw_post_no %>?_method=PATCH" method="POST">
+                                    <input style="font-size: 14px; border: none; background:none;"  type="submit" value="삭제">
+                                </form>
+                                <% } %>
                             </div>
     
                         </div>
@@ -168,14 +166,14 @@
                     </div>
 
                     
-                    <div class="comments" style="margin-top:1rem;">
-                        <h4>Comments (<%= gw.gw_comments ? gw.gw_comments.length : 0 %>)</h4>
+                    <div class="comments" style="margin-top:3rem;">
+                        <h4 style="margin-bottom: 20px;">댓글 (<%= gw.gw_comments ? gw.gw_comments.length : 0%>)</h4>
                         <% if (gw.gw_comments) { %>
-                        <hr/>
-                            <% for(let comment of gw.gw_comments) { %>
-                                <div class="comment">
-                                  <div class="top">
-                                    <b><%= comment.dataValues.gw_comment_writer %></b>
+                        
+                        <% for(let comment of gw.gw_comments) { %>
+                            <div class="comment" style="margin-bottom: 10px; padding-bottom: 3px; border-top: 0.5px solid lightgray;">
+                              <div class="top">
+                                <b><%= comment.dataValues.gw_comment_writer %></b>
                                    <% if(comment.dataValues.gw_comment_write_date.getMinutes() < 10) { %>
                                         <% if(comment.dataValues.gw_comment_write_date.getSeconds() < 10) { %>
                                             <%= '(' + comment.dataValues.gw_comment_write_date.getHours() + ':' + '0'+ comment.dataValues.gw_comment_write_date.getMinutes() + ':' + '0' + comment.dataValues.gw_comment_write_date.getSeconds() + ', ' + comment.dataValues.gw_comment_write_date.getFullYear() + '-' + (comment.dataValues.gw_comment_write_date.getMonth() + 1) + '-' + comment.dataValues.gw_comment_write_date.getDate() + ')'%> 
@@ -189,11 +187,10 @@
                                                 <%= '(' + comment.dataValues.gw_comment_write_date.getHours() + ':' + comment.dataValues.gw_comment_write_date.getMinutes() + ':' + comment.dataValues.gw_comment_write_date.getSeconds() + ', ' + comment.dataValues.gw_comment_write_date.getFullYear() + '-' + (comment.dataValues.gw_comment_write_date.getMonth() + 1) + '-' + comment.dataValues.gw_comment_write_date.getDate() + ')'%>    
                                             <% } %>
                                   <% } %>
-                                    <form action='/board/comment/gangwon/<%= comment.dataValues.gw_comment_no %>?_method=PATCH' method='post'>
-                                        <input type="submit" value="x">
-                                    </form>
-                                    </form>
-                                  </div>
+                                <form style="display: inline-block; margin-top: 3px ;margin-left: 5px;" action="/board/comment/gangwon<%= comment.dataValues.gw_comment_no %>?_method=PATCH" method="post">
+                                    <input style="border-radius: 1rem;" type="submit" value="x">
+                                </form>
+                              </div>
 
                                   <div class="body"><%= comment.dataValues.gw_comment_text %></div>
                                 </div>

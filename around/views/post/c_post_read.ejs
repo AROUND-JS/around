@@ -141,12 +141,10 @@
                                     <span>조회수 : <%= cb.c_hit %></span>
                                 </div>
                                 <% if(nickname == cb.c_writer) { %>
-                                <div class="float-right" style="font-size:14px;bottom:0;">
-                                    <a href="/board/modify/companion_board/<%= cb.c_post_no %>">수정</a>
-                                    <form action="/board/delete/companion_board/<%= cb.c_post_no %>?_method=PATCH" method="POST" enctype="multipart/form-data">
-                                        <input type="submit" value="삭제">
-                                    </form>     
-                                </div>
+                                <a href="/board/modify/companion_board/<%= cb.c_post_no %>"><span style="font-size: 14px;">수정</span></a>
+                                <form action="/board/delete/companion_board/<%= cb.c_post_no %>?_method=PATCH" method="POST">
+                                    <input style="font-size: 14px; border: none; background:none;"  type="submit" value="삭제">
+                                </form>
                                 <% } %>
                             </div>
     
@@ -174,19 +172,30 @@
                     </div>
 
                     
-                    <div class="comments" style="margin-top:1rem;">
-                        <h4>Comments (<%= cb.c_comments ? cb.c_comments.length : 0 %>)</h4>
+                    <div class="comments" style="margin-top:3rem;">
+                        <h4 style="margin-bottom: 20px;">댓글 (<%= cb.c_comments ? cb.c_comments.length : 0%>)</h4>
                         <% if (cb.c_comments) { %>
-                        <hr/>
+                        
                         <% for(let comment of cb.c_comments) { %>
-                            <div class="comment">
+                            <div class="comment" style="margin-bottom: 10px; padding-bottom: 3px; border-top: 0.5px solid lightgray;">
                               <div class="top">
                                 <b><%= comment.dataValues.c_comment_writer %></b>
-                                <%= comment.dataValues.c_comment_write_date.getFullYear() + "/" + (comment.dataValues.c_comment_write_date.getMonth() + 1) + "/" + comment.dataValues.c_comment_write_date.getDate() %>
-                                <form action="/board/comment/companion_board/<%= comment.dataValues.c_comment_no %>?_method=PATCH" method="post">
-                                    <input type="submit" value="x">
+                                   <% if(comment.dataValues.c_comment_write_date.getMinutes() < 10) { %>
+                                        <% if(comment.dataValues.c_comment_write_date.getSeconds() < 10) { %>
+                                            <%= '(' + comment.dataValues.c_comment_write_date.getHours() + ':' + '0'+ comment.dataValues.c_comment_write_date.getMinutes() + ':' + '0' + comment.dataValues.c_comment_write_date.getSeconds() + ', ' + comment.dataValues.c_comment_write_date.getFullYear() + '-' + (comment.dataValues.c_comment_write_date.getMonth() + 1) + '-' + comment.dataValues.c_comment_write_date.getDate() + ')'%> 
+                                            <% } else {%>
+                                              <%= '(' + comment.dataValues.c_comment_write_date.getHours() + ':' + '0'+ comment.dataValues.c_comment_write_date.getMinutes() + ':' + comment.dataValues.c_comment_write_date.getSeconds() + ', ' + comment.dataValues.c_comment_write_date.getFullYear() + '-' + (comment.dataValues.c_comment_write_date.getMonth() + 1) + '-' + comment.dataValues.c_comment_write_date.getDate() + ')'%> 
+                                            <% } %>       
+                                 <% } else { %>
+                                        <% if (comment.dataValues.c_comment_write_date.getSeconds() < 10) { %>
+                                            <%= '(' + comment.dataValues.c_comment_write_date.getHours() + ':' + comment.dataValues.c_comment_write_date.getMinutes() + ':' + '0' + comment.dataValues.c_comment_write_date.getSeconds() + ', ' + comment.dataValues.c_comment_write_date.getFullYear() + '-' + (comment.dataValues.c_comment_write_date.getMonth() + 1) + '-' + comment.dataValues.c_comment_write_date.getDate() + ')'%> 
+                                            <% } else { %>
+                                                <%= '(' + comment.dataValues.c_comment_write_date.getHours() + ':' + comment.dataValues.c_comment_write_date.getMinutes() + ':' + comment.dataValues.c_comment_write_date.getSeconds() + ', ' + comment.dataValues.c_comment_write_date.getFullYear() + '-' + (comment.dataValues.c_comment_write_date.getMonth() + 1) + '-' + comment.dataValues.c_comment_write_date.getDate() + ')'%>    
+                                            <% } %>
+                                  <% } %>
+                                <form style="display: inline-block; margin-top: 3px ;margin-left: 5px;" action="/board/comment/companion_board<%= comment.dataValues.c_comment_no %>?_method=PATCH" method="post">
+                                    <input style="border-radius: 1rem;" type="submit" value="x">
                                 </form>
-                                  </form>
                               </div>
 
                               <div class="body"><%= comment.dataValues.c_comment_text %></div>
