@@ -10,6 +10,7 @@ router.get('/companion_board/:id', function (req, res) {
     })
         .then(result => {
             res.render('post/c_post_modify', {
+                title: "동행",
                 cb: result,
                 islogin: true
             })
@@ -45,6 +46,7 @@ router.get('/schedule_share/:id', function (req, res) {
     })
         .then(result => {
             res.render('post/ss_post_modify', {
+                title: "일정공유",
                 ss: result,
                 islogin: true
             })
@@ -79,6 +81,7 @@ router.get('/sgi/:id', function (req, res) {
     })
     .then(result => {
         res.render('region_post/sgi_post_modify', {
+            title: "서울·경기·인천",
             sgi: result,
             islogin: true
         })
@@ -111,6 +114,7 @@ router.get('/jeonla/:id', function (req, res) {
     })
     .then(result => {
         res.render('region_post/jl_post_modify', {
+            title: "전라",
             jl: result,
             islogin: true
         })
@@ -143,6 +147,7 @@ router.get('/jeju/:id', function (req, res) {
     })
     .then(result => {
         res.render('region_post/jj_post_modify', {
+            title: "제주",
             jj: result,
             islogin: true
         })
@@ -175,6 +180,7 @@ router.get('/gangwon/:id', function (req, res) {
     })
     .then(result => {
         res.render('region_post/gw_post_modify', {
+            title: "강원",
             gw: result,
             islogin: true
         })
@@ -207,6 +213,7 @@ router.get('/gyeongsang/:id', function (req, res) {
     })
     .then(result => {
         res.render('region_post/gs_post_modify', {
+            title: "경상",
             gs: result,
             islogin: true
         })
@@ -239,6 +246,7 @@ router.get('/chungcheong/:id', function (req, res) {
     })
         .then(result => {
             res.render('region_post/cc_post_modify', {
+                title: "충청",
                 cc: result,
                 islogin: true
             })

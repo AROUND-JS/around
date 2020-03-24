@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,113 +13,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
-    <style>
-
-        #banner {
-            padding: 13em 0 8em 0;
-            background-color: #0c0c0c;
-            background-image: url(/images/trip.jpg);
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: 15% left;
-            text-align: left;
-            z-index: 9999;
-            opacity: 0.9;
-        }
-
-        #banner .inner {
-            padding-top: 5rem;
-            max-width: 65em;
-            width: calc(100% - 6em);
-            margin: 0 auto;
-            position: relative;
-            z-index: 10000;
-            line-height: 1.5;
-            text-align: center;
-        }
-
-        #banner h1 {
-            font-size: 2em;
-            margin: 0 0 1em 0;
-            padding: 0;
-            letter-spacing: 3px;
-            font-weight: 700;
-            color: #fff;
-        }
-
-        @media (max-width: 1500px) {
-            .content-wrap {
-            width: 100%;
-            padding: 20px;
-            }
-        }
-
-        nav ul li a:hover {
-            background-color: #ddd;
-            color: black;
-        }
-
-        .paging ul li a {
-            width: 34px;
-            height: 34px;
-            border-radius: 34px;
-            color: #333;
-            line-height: 32px;
-            display: inline-block;
-            box-sizing: border-box;
-        }
-
-        a:link, a:visited, a:hover, a, .active, a:focus {
-            text-decoration: none;
-            cursor: pointer;
-            color: inherit;
-            word-break: break-word;
-        }
-
-        #content .table_wrap table tbody tr td a:hover {
-            text-decoration: underline;
-        }
-
-        ol:after, ul:after, dl:after {
-            content: '';
-            display: block;
-            clear: both;
-        }
-
-        .input_smallBlack {
-            padding: 5px 27px;
-            background-color: #343434;
-            border: none;
-            border-radius: 0;
-            color: #fff;
-            text-align: center;
-            letter-spacing: -0.1em;
-        }
-
-        #menubar li:hover ul {
-            display:block;   /* 마우스 커서 올리면 서브메뉴 보이게 하기 */
-        }
-        
-        .disabled {
-            pointer-events: none;
-            cursor: default;
-            text-decoration: none;
-            color: black;
-        }
-
-        .active {
-            background-color: skyblue;
-            opacity: 0.7;
-            border-radius: 3rem;
-        }
-    </style>
-
     <script type="text/javascript">
         var totalData = <%= length + 1 %>; // 총 데이터 수
         var dataPerPage = <%= limit %>; // 한 페이지에 나타낼 데이터 수
         var pageCount = 10; // 한 화면에 나타낼 페이지 수
 
         console.log(dataPerPage);
+
         function paging(totalData, dataPerPage, pageCount, currentPage) {
 
             console.log("currentPage : " + currentPage);
@@ -132,7 +33,7 @@
             if (last > totalPage)
                 last = totalPage;
             var first = last - (pageCount - 1); // 화면에 보여질 첫번째 페이지 번호
-            if(last < pageCount)
+            if (last < pageCount)
                 first = 1;
             var next = last + 1;
             var prev = first - 1;
@@ -146,26 +47,33 @@
 
             var html = "";
 
-            html += "<a href='/board/list/companion_board?page=1&limit=<%= limit %>'><img src='/images/paging_first.png' style='height: 34px;' alt='첫 페이지' /></a>"
+            html +=
+                "<a href='/board/list/companion_board?page=1&limit=<%= limit %>'><img src='/images/paging_first.png' style='height: 34px;' alt='첫 페이지' /></a>"
 
             if (prev > 0) {
-                html += "<a href='/board/list/companion_board?page=" + prev + "&limit=<%= limit %>' id='prev'><img src='/images/paging_prev.png' style='height: 34px;' alt='이전 10개 페이지' /></a> ";
+                html += "<a href='/board/list/companion_board?page=" + prev +
+                    "&limit=<%= limit %>' id='prev'><img src='/images/paging_prev.png' style='height: 34px;' alt='이전 10개 페이지' /></a> ";
             } else {
-                html += "<a class='disabled' tabindex=-1 href='/board/list/companion_board?page=" + prev + "&limit=<%= limit %>' id='prev'><img src='/images/paging_prev.png' style='height: 34px;' alt='이전 10개 페이지' /></a> ";
+                html += "<a class='disabled' tabindex=-1 href='/board/list/companion_board?page=" + prev +
+                    "&limit=<%= limit %>' id='prev'><img src='/images/paging_prev.png' style='height: 34px;' alt='이전 10개 페이지' /></a> ";
             }
 
             for (var i = first; i <= last; i++) {
-                html += "<a href='/board/list/companion_board?page=" + i + "&limit=<%= limit %>' id=" + i + ">" + i + "</a> ";
+                html += "<a href='/board/list/companion_board?page=" + i + "&limit=<%= limit %>' id=" + i + ">" + i +
+                    "</a> ";
             }
 
             if (last < totalPage) {
-                html += "<a href='/board/list/companion_board?page=" + next + "&limit=<%= limit %>' id='next'><img src='/images/paging_next.png' style='height: 34px;' alt='다음 10개 페이지' /></a>";
+                html += "<a href='/board/list/companion_board?page=" + next +
+                    "&limit=<%= limit %>' id='next'><img src='/images/paging_next.png' style='height: 34px;' alt='다음 10개 페이지' /></a>";
             } else {
-                html += "<a class='disabled' tabindex=-1 href='/board/list/companion_board?page=" + next + "&limit=<%= limit %>' id='next'><img src='/images/paging_next.png' style='height: 34px;' alt='다음 10개 페이지' /></a>";
+                html += "<a class='disabled' tabindex=-1 href='/board/list/companion_board?page=" + next +
+                    "&limit=<%= limit %>' id='next'><img src='/images/paging_next.png' style='height: 34px;' alt='다음 10개 페이지' /></a>";
             }
 
-            html += "<a href='/board/list/companion_board?page=<%= maxPage %>&limit=<%= limit %>'><img src='/images/paging_last.png' style='height: 34px;' alt='끝 페이지' /></a>"
-            
+            html +=
+                "<a href='/board/list/companion_board?page=<%= maxPage %>&limit=<%= limit %>'><img src='/images/paging_last.png' style='height: 34px;' alt='끝 페이지' /></a>"
+
             $("#paging").html(html); // 페이지 목록 생성
             $("#paging a").css({
                 "margin": "5px",
@@ -195,25 +103,23 @@
         }
 
         $("document").ready(function () {
-            paging(totalData, dataPerPage, pageCount, <%= currentPage %>);
+            paging(totalData, dataPerPage, pageCount, <%= currentPage %> );
         });
     </script>
 
 </head>
+
 <body>
-    <% include ../navbar.ejs %>
+    <% include ../navbar1.ejs %>
 
     <div id="container" style="width: 100%; position: relative;">
 
-			<section id="banner">
-				<div class="inner">
-					<h1>동행 게시판</h1>
-                </div>
-			</section>
+        <% include ../banner.ejs %>
 
         <div id="content" class="content-wrap" style="padding-top:3rem;">
-            <div class="table_wrap"  style="position:relative; max-width: 80rem; margin: 0 auto;">
-                <table class="table table-hover" style="max-width: 80rem; margin: 0 auto; text-align:center; color: #626262; border-top: solid 2px #313131; border-bottom: solid 1px #313131;">
+            <div class="table_wrap" style="position:relative; max-width: 80rem; margin: 0 auto;">
+                <table class="table table-hover"
+                    style="max-width: 80rem; margin: 0 auto; text-align:center; color: #626262; border-top: solid 2px #313131; border-bottom: solid 1px #313131;">
                     <colgroup>
                         <col style="width: 5%;" />
                         <col style="width: 8%;" />
@@ -225,26 +131,26 @@
                     </colgroup>
                     <thead>
                         <tr>
-                                <th scope="col">번호</th>
-                                <th scope="col">지 역</th>
-                                <th scope="col">출발일</th>
-                                <th scope="col">제 목</th>
-                                <th scope="col">작성자</th>
-                                <th scope="col">작성일</th>
-                                <th scope="col">조회</th>
+                            <th scope="col">번호</th>
+                            <th scope="col">지 역</th>
+                            <th scope="col">출발일</th>
+                            <th scope="col">제 목</th>
+                            <th scope="col">작성자</th>
+                            <th scope="col">작성일</th>
+                            <th scope="col">조회</th>
                         </tr>
                     </thead>
                     <tbody>
                         <% if(rows.length == 0) { %>
-                            
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>게시글이 없습니다.</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            
+
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>게시글이 없습니다.</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+
                         <% }
                         else { %>
                         <% for(let i = (currentPage * page_num) - page_num; i < (currentPage * page_num); i++) {
@@ -252,28 +158,34 @@
                                 i++;
                             } else {
                                 var data = rows[i];
-                            %>                            
-                            <tr>
-                                <td><%= rows.length - i %></td>
-                                <td><%= data.c_region %></td>
-                                <td><%= data.c_dept_date.getFullYear() + "/" + (data.c_dept_date.getMonth() + 1) + "/" + data.c_dept_date.getDate() %></td>
-                                <td><a href="/board/read/companion_board/<%= data.c_post_no %>"><%= data.c_post_title %></a></td>
-                                <td><%= data.c_writer %></td>
-                                <td><%= data.c_write_date.getFullYear() + "/" + (data.c_write_date.getMonth() + 1) + "/" + data.c_write_date.getDate() %></td>
-                                <td><%= data.c_hit %></td>
-                            </tr>
-                            <% }
+                            %>
+                        <tr>
+                            <td><%= rows.length - i %></td>
+                            <td><%= data.c_region %></td>
+                            <td><%= data.c_dept_date.getFullYear() + "/" + (data.c_dept_date.getMonth() + 1) + "/" + data.c_dept_date.getDate() %>
+                            </td>
+                            <td><a href="/board/read/companion_board/<%= data.c_post_no %>"><%= data.c_post_title %></a>
+                            </td>
+                            <td><%= data.c_writer %></td>
+                            <td><%= data.c_write_date.getFullYear() + "/" + (data.c_write_date.getMonth() + 1) + "/" + data.c_write_date.getDate() %>
+                            </td>
+                            <td><%= data.c_hit %></td>
+                        </tr>
+                        <% }
                             }
                         } %>
                     </tbody>
                 </table>
-                <div class="write" style="position:absolute; right:0; width:60px; background-color: #343434; color: white; margin-top: 1rem; text-align: center; padding-top: 5px; padding-bottom: 5px;">
+                <div class="write"
+                    style="position:absolute; right:0; width:60px; background-color: #343434; color: white; margin-top: 1rem; text-align: center; padding-top: 5px; padding-bottom: 5px;">
                     <a href="/board/write/companion_board">글쓰기</a>
                 </div>
             </div>
 
-            <form action="/board/search/companion_board" method="get" id="search_form" style="max-width: 80rem; margin: 0 auto; text-align:center;">
-                <div class="articles_search" style="padding:15px 30px; background-color:#fff; margin-top: 50px; margin-bottom: 15px; overflow: hidden;">
+            <form action="/board/search/companion_board" method="get" id="search_form"
+                style="max-width: 80rem; margin: 0 auto; text-align:center;">
+                <div class="articles_search"
+                    style="padding:15px 30px; background-color:#fff; margin-top: 50px; margin-bottom: 15px; overflow: hidden;">
                     <div id="basic_searchForm" class="basic_searchForm" style="padding-top: 1px;">
                         <!-- <input type="hidden" name="" id="categoryCodeData1" value="" title="카테고리1"/> -->
                         <!-- <label for="search_a" class="blind">검색항목</label> -->
@@ -283,7 +195,8 @@
                             <option value="USER_NICK">작성자</option>
                         </select>
                         <% if(currentSearchWord != null) { %>
-                        <input type="text" name="keyword" id="keyword" value="" placeholder="<%= currentSearchWord %>" />
+                        <input type="text" name="keyword" id="keyword" value=""
+                            placeholder="<%= currentSearchWord %>" />
                         <!-- <label for="searchSubmit" class="blind">검색 버튼</label> -->
                         <% } else { %>
                         <input type="text" name="keyword" id="keyword" value="" title="검색어 입력" />
@@ -306,11 +219,12 @@
     </div>
     <% if(rows.length == 0) { %>
     <script>
-            var p = document.getElementById('paging');
-            var s = document.getElementById('basic_searchForm');
-            p.setAttribute('style', 'display:none;');
-            s.setAttribute('style', 'display:none;');
+        var p = document.getElementById('paging');
+        var s = document.getElementById('basic_searchForm');
+        p.setAttribute('style', 'display:none;');
+        s.setAttribute('style', 'display:none;');
     </script>
     <% } %>
 </body>
+
 </html>

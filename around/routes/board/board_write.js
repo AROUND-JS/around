@@ -19,7 +19,7 @@ router.get('/schedule_share', function (req, res) {
 
     if (req.session.nickname) {
         res.render('post/post_write', {
-            title: "일정 공유",
+            title: "일정공유",
             path: 'schedule_share',
             islogin: true
         });

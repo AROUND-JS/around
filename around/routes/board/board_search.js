@@ -43,6 +43,7 @@ router.get('/companion_board', function (req, res) {
                         login = false
                     }
                     res.render('post/companion_post', {
+                        title: "동행",
                         rows: result.rows,
                         currentPage: page,
                         maxPage: maxPage,
@@ -74,6 +75,7 @@ router.get('/companion_board', function (req, res) {
                         login = false
                     }
                     res.render('post/companion_post', {
+                        title: "동행",
                         rows: result.rows,
                         currentPage: page,
                         maxPage: maxPage,
@@ -105,6 +107,7 @@ router.get('/companion_board', function (req, res) {
                         login = false
                     }
                     res.render('post/companion_post', {
+                        title: "동행",
                         rows: result.rows,
                         currentPage: page,
                         maxPage: maxPage,
@@ -159,6 +162,7 @@ router.get('/schedule_share', function (req, res) {
                         login = false
                     }
                     res.render('post/sched_share_post', {
+                        title: "일정공유",
                         rows: result.rows,
                         currentPage: page,
                         maxPage: maxPage,
@@ -190,6 +194,7 @@ router.get('/schedule_share', function (req, res) {
                         login = false
                     }
                     res.render('post/sched_share_post', {
+                        title: "일정공유",
                         rows: result.rows,
                         currentPage: page,
                         maxPage: maxPage,
@@ -221,6 +226,7 @@ router.get('/schedule_share', function (req, res) {
                         login = false
                     }
                     res.render('post/sched_share_post', {
+                        title: "일정공유",
                         rows: result.rows,
                         currentPage: page,
                         maxPage: maxPage,
@@ -273,6 +279,7 @@ router.get('/sgi', function (req, res) {
                         login = false
                     }
                     res.render('region_post/sgi_post', {
+                        title: "서울·경기·인천",
                         rows: result.rows,
                         currentPage: page,
                         maxPage: maxPage,
@@ -304,6 +311,7 @@ router.get('/sgi', function (req, res) {
                         login = false
                     }
                     res.render('region_post/sgi_post', {
+                        title: "서울·경기·인천",
                         rows: result.rows,
                         currentPage: page,
                         maxPage: maxPage,
@@ -335,6 +343,7 @@ router.get('/sgi', function (req, res) {
                         login = false
                     }
                     res.render('region_post/sgi_post', {
+                        title: "서울·경기·인천",
                         rows: result.rows,
                         currentPage: page,
                         maxPage: maxPage,
@@ -387,6 +396,7 @@ router.get('/jeonla', function (req, res) {
                         login = false
                     }
                     res.render('region_post/jl_post', {
+                        title: "전라",
                         rows: result.rows,
                         currentPage: page,
                         maxPage: maxPage,
@@ -418,6 +428,7 @@ router.get('/jeonla', function (req, res) {
                         login = false
                     }
                     res.render('region_post/jl_post', {
+                        title: "전라",
                         rows: result.rows,
                         currentPage: page,
                         maxPage: maxPage,
@@ -449,6 +460,7 @@ router.get('/jeonla', function (req, res) {
                         login = false
                     }
                     res.render('region_post/jl_post', {
+                        title: "전라",
                         rows: result.rows,
                         currentPage: page,
                         maxPage: maxPage,
@@ -501,6 +513,7 @@ router.get('/jeju', function (req, res) {
                         login = false
                     }
                     res.render('region_post/jj_post', {
+                        title: "제주",
                         rows: result.rows,
                         currentPage: page,
                         maxPage: maxPage,
@@ -532,6 +545,7 @@ router.get('/jeju', function (req, res) {
                         login = false
                     }
                     res.render('region_post/jj_post', {
+                        title: "제주",
                         rows: result.rows,
                         currentPage: page,
                         maxPage: maxPage,
@@ -563,6 +577,7 @@ router.get('/jeju', function (req, res) {
                         login = false
                     }
                     res.render('region_post/jj_post', {
+                        title: "제주",
                         rows: result.rows,
                         currentPage: page,
                         maxPage: maxPage,
@@ -615,6 +630,7 @@ router.get('/gangwon', function (req, res) {
                         login = false
                     }
                     res.render('region_post/gw_post', {
+                        title: "강원",
                         rows: result.rows,
                         currentPage: page,
                         maxPage: maxPage,
@@ -646,6 +662,7 @@ router.get('/gangwon', function (req, res) {
                         login = false
                     }
                     res.render('region_post/gw_post', {
+                        title: "강원",
                         rows: result.rows,
                         currentPage: page,
                         maxPage: maxPage,
@@ -677,6 +694,7 @@ router.get('/gangwon', function (req, res) {
                         login = false
                     }
                     res.render('region_post/gw_post', {
+                        title: "강원",
                         rows: result.rows,
                         currentPage: page,
                         maxPage: maxPage,
@@ -729,6 +747,7 @@ router.get('/gyeongsang', function (req, res) {
                         login = false
                     }
                     res.render('region_post/gs_post', {
+                        title: "경상",
                         rows: result.rows,
                         currentPage: page,
                         maxPage: maxPage,
@@ -760,6 +779,7 @@ router.get('/gyeongsang', function (req, res) {
                         login = false
                     }
                     res.render('region_post/gs_post', {
+                        title: "경상",
                         rows: result.rows,
                         currentPage: page,
                         maxPage: maxPage,
@@ -791,6 +811,7 @@ router.get('/gyeongsang', function (req, res) {
                         login = false
                     }
                     res.render('region_post/gs_post', {
+                        title: "경상",
                         rows: result.rows,
                         currentPage: page,
                         maxPage: maxPage,
@@ -843,6 +864,7 @@ router.get('/chungcheong', function (req, res) {
                         login = false
                     }
                     res.render('region_post/cc_post', {
+                        title: "충청",
                         rows: result.rows,
                         currentPage: page,
                         maxPage: maxPage,
@@ -874,6 +896,7 @@ router.get('/chungcheong', function (req, res) {
                         login = false
                     }
                     res.render('region_post/cc_post', {
+                        title: "충청",
                         rows: result.rows,
                         currentPage: page,
                         maxPage: maxPage,
@@ -905,6 +928,7 @@ router.get('/chungcheong', function (req, res) {
                         login = false
                     }
                     res.render('region_post/cc_post', {
+                        title: "충청",
                         rows: result.rows,
                         currentPage: page,
                         maxPage: maxPage,

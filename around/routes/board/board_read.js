@@ -22,6 +22,7 @@ router.get('/companion_board/:id', async function (req, res) {
         if (req.session.nickname) {
           result.c_hit = result.c_hit + 1;
           res.render("post/c_post_read", {
+            title: "동행",
             cb: boardresult,
             islogin: true,
             nickname: req.session.nickname
@@ -64,6 +65,7 @@ router.get('/schedule_share/:id', async function (req, res) {
         if (req.session.nickname) {
           result.ss_hit = result.ss_hit + 1;
           res.render("post/ss_post_read", {
+            title: "일정공유",
             ss: boardresult,
             islogin: true,
             nickname: req.session.nickname
@@ -106,6 +108,7 @@ router.get('/sgi/:id', async function (req, res) {
         if (req.session.nickname) {
           result.sgi_hit = result.sgi_hit + 1;
           res.render("region_post/sgi_post_read", {
+            title: "서울·경기·인천",
             sgi: boardresult,
             islogin: true,
             nickname: req.session.nickname
@@ -148,6 +151,7 @@ router.get('/jeonla/:id', async function (req, res) {
         if (req.session.nickname) {
           result.jl_hit = result.jl_hit + 1;
           res.render("region_post/jl_post_read", {
+            title: "전라",
             jl: boardresult,
             islogin: true,
             nickname: req.session.nickname
@@ -190,6 +194,7 @@ router.get('/jeju/:id', async function (req, res) {
         if (req.session.nickname) {
           result.jj_hit = result.jj_hit + 1;
           res.render("region_post/jj_post_read", {
+            title: "제주",
             jj: boardresult,
             islogin: true,
             nickname: req.session.nickname
@@ -232,6 +237,7 @@ router.get('/gangwon/:id', async function (req, res) {
         if (req.session.nickname) {
           result.gw_hit = result.gw_hit + 1;
           res.render("region_post/gw_post_read", {
+            title: "강원",
             gw: boardresult,
             islogin: true,
             nickname: req.session.nickname
@@ -274,6 +280,7 @@ router.get('/gyeongsang/:id', async function (req, res) {
         if (req.session.nickname) {
           result.gs_hit = result.gs_hit + 1;
           res.render("region_post/gs_post_read", {
+            title: "경상",
             gs: boardresult,
             islogin: true,
             nickname: req.session.nickname
@@ -316,6 +323,7 @@ router.get('/chungcheong/:id', async function (req, res) {
         if (req.session.nickname) {
           result.cc_hit = result.cc_hit + 1;
           res.render("region_post/cc_post_read", {
+            title: "충청",
             cc: boardresult,
             islogin: true,
             nickname: req.session.nickname

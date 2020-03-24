@@ -10,13 +10,13 @@ router.get('/', function (req, res, next) {
   if (req.session.nickname) {
 
     res.render('index', {
-      title: 'around',
+      title: 'Around',
       islogin: true
     });
   }
   else {
     res.render('index', {
-      title: 'around',
+      title: 'Around',
       islogin: false
     });
   }
