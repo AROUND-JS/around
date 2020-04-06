@@ -72,6 +72,11 @@ module.exports = (sequelize, DataTypes) => {
           foreignKey : 'fk_board_no',
           sourceKey : 'sgi_post_no'
         })
+
+        sgi_info_board.hasMany(models.sgi_attachment, {
+            foreignKey : 'postId',
+            sourceKey : 'sgi_post_no'
+          })
       }
 
     return sgi_info_board

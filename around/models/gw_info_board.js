@@ -64,6 +64,11 @@ module.exports = (sequelize, DataTypes) => {
           foreignKey : 'fk_board_no',
           sourceKey : 'gw_post_no'
         })
+
+        gw_info_board.hasMany(models.gw_attachment, {
+            foreignKey : 'postId',
+            sourceKey : 'gw_post_no'
+          })
       }
 
     return gw_info_board

@@ -64,6 +64,11 @@ module.exports = (sequelize, DataTypes) => {
           foreignKey : 'fk_board_no',
           sourceKey : 'jj_post_no'
         })
+
+        jj_info_board.hasMany(models.jj_attachment, {
+            foreignKey : 'postId',
+            sourceKey : 'jj_post_no'
+          })
       }
 
     return jj_info_board
