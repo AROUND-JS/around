@@ -1,7 +1,7 @@
 'use strict'
-var express = require('express');
-var app = express();
-const models = require('../../models');
+const express = require('express'),
+      models = require('../../models'),
+      attachUtil = require('../../util/fileUtil');
 var router = express.Router();
 
 router.get('/companion_board/:id', async function (req, res) {
@@ -17,6 +17,14 @@ router.get('/companion_board/:id', async function (req, res) {
                             c_comment_state : 1}
                 }
             })
+        totalresult = await models.companion_board.findOne({
+            include : {
+                model : models.c_attachment,
+                where : {postId : result.dataValues.c_post_no,
+                         state : 1}
+            }
+        })
+        // console.log(totalresult)
         if (totalresult) boardresult = totalresult; //댓글 있을 때
         else boardresult = result;//댓글 없을 때
         if (req.session.nickname) {
@@ -57,6 +65,13 @@ router.get('/schedule_share/:id', async function (req, res) {
                     model : models.ss_comment,
                     where : {fk_board_no : result.dataValues.ss_post_no,
                             ss_comment_state : 1}
+                }
+            })
+            totalresult = await models.schedule_share.findOne({
+                include : {
+                    model : models.ss_attachment,
+                    where : {postId : result.dataValues.ss_post_no,
+                             state : 1}
                 }
             })
         if (totalresult) boardresult = totalresult; //댓글 있을 때
@@ -101,6 +116,13 @@ router.get('/sgi/:id', async function (req, res) {
                             sgi_comment_state : 1}
                 }
             })
+            totalresult = await models.sgi_info_board.findOne({
+                include : {
+                    model : models.sgi_attachment,
+                    where : {postId : result.dataValues.sgi_post_no,
+                             state : 1}
+                }
+            })
         if (totalresult) boardresult = totalresult; //댓글 있을 때
         else boardresult = result;//댓글 없을 때
         if (req.session.nickname) {
@@ -141,6 +163,13 @@ router.get('/jeonla/:id', async function (req, res) {
                     model : models.jl_comment,
                     where : {fk_board_no : result.dataValues.jl_post_no,
                             jl_comment_state : 1}
+                }
+            })
+            totalresult = await models.jl_info_board.findOne({
+                include : {
+                    model : models.jl_attachment,
+                    where : {postId : result.dataValues.jl_post_no,
+                             state : 1}
                 }
             })
         if (totalresult) boardresult = totalresult; //댓글 있을 때
@@ -185,6 +214,13 @@ router.get('/jeju/:id', async function (req, res) {
                             jj_comment_state : 1}
                 }
             })
+            totalresult = await models.jj_info_board.findOne({
+                include : {
+                    model : models.jj_attachment,
+                    where : {postId : result.dataValues.jj_post_no,
+                             state : 1}
+                }
+            })
         if (totalresult) boardresult = totalresult; //댓글 있을 때
         else boardresult = result;//댓글 없을 때
         if (req.session.nickname) {
@@ -225,6 +261,13 @@ router.get('/gangwon/:id', async function (req, res) {
                     model : models.gw_comment,
                     where : {fk_board_no : result.dataValues.gw_post_no,
                             gw_comment_state : 1}
+                }
+            })
+            totalresult = await models.gw_info_board.findOne({
+                include : {
+                    model : models.gw_attachment,
+                    where : {postId : result.dataValues.gw_post_no,
+                             state : 1}
                 }
             })
         if (totalresult) boardresult = totalresult; //댓글 있을 때
@@ -269,6 +312,13 @@ router.get('/gyeongsang/:id', async function (req, res) {
                             gs_comment_state : 1}
                 }
             })
+            totalresult = await models.gs_info_board.findOne({
+                include : {
+                    model : models.gs_attachment,
+                    where : {postId : result.dataValues.gs_post_no,
+                             state : 1}
+                }
+            })
         if (totalresult) boardresult = totalresult; //댓글 있을 때
         else boardresult = result;//댓글 없을 때
         if (req.session.nickname) {
@@ -309,6 +359,13 @@ router.get('/chungcheong/:id', async function (req, res) {
                     model : models.cc_comment,
                     where : {fk_board_no : result.dataValues.cc_post_no,
                             cc_comment_state : 1}
+                }
+            })
+            totalresult = await models.cc_info_board.findOne({
+                include : {
+                    model : models.cc_attachment,
+                    where : {postId : result.dataValues.cc_post_no,
+                             state : 1}
                 }
             })
         if (totalresult) boardresult = totalresult; //댓글 있을 때

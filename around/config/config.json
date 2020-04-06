@@ -2,7 +2,7 @@
   "around": {
     "username": "root",
     "password": "root",
-    "database": "around",
+    "database": "roh_sample",
     "host": "220.67.128.82",
     "port": "1004",
     "dialect": "mysql",
@@ -11,6 +11,8 @@
       "min" : 0,
       "idle" : 10000
     },
+    "charset": "utf8",
+    "collate": "utf8_general_ci",
     "operatorsAliases": false
   }
 }

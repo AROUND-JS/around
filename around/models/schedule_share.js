@@ -81,6 +81,11 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey : 'fk_board_no',
       sourceKey : 'ss_post_no'
     })
+
+    schedule_share.hasMany(models.ss_attachment, {
+      foreignKey : 'postId',
+      sourceKey : 'ss_post_no'
+    })
   }
 
   return schedule_share;

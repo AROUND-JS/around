@@ -71,6 +71,11 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey : 'fk_board_no',
       sourceKey : 'c_post_no'
     })
+
+    companion_board.hasMany(models.c_attachment, {
+      foreignKey : 'postId',
+      sourceKey : 'c_post_no'
+    })
   }
 
   return companion_board;

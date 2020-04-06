@@ -1,11 +1,13 @@
-const expressSession = require('express-session');
-const SessionStore = require('express-session-sequelize')(expressSession.Store);
-const fileupload = require('express-fileupload');
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const expressSession = require('express-session'),
+      SessionStore = require('express-session-sequelize')(expressSession.Store),
+      // fileupload = require('express-fileupload'),
+      createError = require('http-errors'),
+      express = require('express'),
+      path = require('path'),
+      cookieParser = require('cookie-parser'),
+      logger = require('morgan'),
+      multer = require('multer');
+
 const models = require('./models/index');
 
 var indexRouter = require('./routes/index');
@@ -44,9 +46,8 @@ app.use(expressSession({
 }))
 
 
-app.use(fileupload());
+// app.use(fileupload());
 app.use('/', indexRouter);
-//app.use('/users', usersRouter);
 app.use('/members', membersRouter);
 app.use('/board', boardRouter);
 app.use('/weather', weatherRouter);

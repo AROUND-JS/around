@@ -72,6 +72,11 @@ module.exports = (sequelize, DataTypes) => {
           foreignKey : 'fk_board_no',
           sourceKey : 'jl_post_no'
         })
+
+        jl_info_board.hasMany(models.jl_attachment, {
+            foreignKey : 'postId',
+            sourceKey : 'jl_post_no'
+          })
       }
 
 
