@@ -12,7 +12,8 @@ const models = require('./models/index');
 
 var indexRouter = require('./routes/index');
 var membersRouter = require('./routes/members');
-var boardRouter = require('./routes/board/board')
+var boardRouter = require('./routes/board/board');
+var weatherRouter = require('./routes/weather');
 
 const sequelizeSessionStore = new SessionStore({
   db: models.sequelize,
@@ -49,6 +50,7 @@ app.use(expressSession({
 app.use('/', indexRouter);
 app.use('/members', membersRouter);
 app.use('/board', boardRouter);
+app.use('/weather', weatherRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));//err를 발생시키면 err를 매개변수로받는 미들웨어가 바로 실행됨
