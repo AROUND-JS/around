@@ -296,7 +296,7 @@ c-11 -29 -47 -138 -82 -243 -76 -232 -86 -250 -150 -309 -77 -68 -172 -92
                                     <% if (file.dataValues.filetype.substring(0, 5) === 'image') { %>
                                         <img src= '<%= file.dataValues.path %>' style="max-width:80%;max-height: 80%"/>
                                     <% } %>
-                                    <% if (file.dataValues.filetype.substring(0, 5) !== 'image' ) { %>}
+                                    <% if (file.dataValues.filetype.substring(0, 5) !== 'image' ) { %>
                                         <small><a href="/board/files/companion_board/<%= file.dataValues.serverFileName %>"><%= file.dataValues.originalFileName %></a></small>
                                     <% } %>
                                 <% } %>
